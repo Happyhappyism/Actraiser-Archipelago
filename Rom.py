@@ -541,6 +541,8 @@ def patch_rom(world: World, rom: ActraiserProcedurePatch):
     # Fixes
     # Fix checks randomly sending out
     #rom.write_bytes(0x196EF, bytes([0xEA, 0xEA, 0xEA])) #   JSR $9710 -> NOP
+    # Aitos Mountaineer immediate trigger
+    rom.write_bytes(0x1EF53, bytes([0x80, 0x1B])) # BRA $03EF70
 
     if world.options.catraiser:
         
